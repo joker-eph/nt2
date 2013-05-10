@@ -15,6 +15,7 @@
   @brief Define the constant_ fucntor adaptor
 **/
 
+#include <boost/dispatch/meta/rebind.hpp>
 #include <boost/dispatch/functor/meta/make_functor.hpp>
 
 namespace nt2 { namespace meta
@@ -36,9 +37,14 @@ namespace nt2 { namespace meta
 
     template<class Pos, class Size, class Target>
     BOOST_FORCEINLINE typename Target::type
-    operator()(Pos const&, Size const&, Target const& t) const
+    operator()(Pos const&, Size const&, Target const& ) const
     {
-      return f_t()(t);
+      // Transtyping constants need to recompute their input target or
+      // the wrong specialization is called.
+      typedef typename Target::type tgt_t;
+      typedef typename boost::dispatch::meta::rebind<tgt_t,Base>::type type;
+
+      return f_t()(meta::as_<type>());
     }
   };
 } }
