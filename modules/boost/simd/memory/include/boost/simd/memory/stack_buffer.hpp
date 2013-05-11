@@ -21,8 +21,8 @@
   buffer fulfilling both stack alignment and SIMD alignment is constraints.
 **/
 #include <boost/simd/sdk/config/arch.hpp>
-#include <boost/simd/memory/aligned_on.hpp>
 #include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/align_on.hpp>
 #include <boost/dispatch/attributes.hpp>
 
 #include <boost/range/iterator_range_core.hpp>
@@ -67,7 +67,7 @@ reinterpret_cast<void *>                                                       \
 /// INTERNAL ONLY
 /// Assignment construction syntax workaround for the most-vexing parse problem
 #define BOOST_SIMD_STACK_BUFFER_AUX(variableName, type, size, alignment, impl) \
-BOOST_SIMD_ALIGN_ON( alignment ) type * BOOST_DISPATCH_RESTRICT const          \
+BOOST_SIMD_ALIGN_ON( alignment ) type* BOOST_DISPATCH_RESTRICT const           \
 __##variableName##helper_pointer__  =                                          \
 static_cast<type * BOOST_DISPATCH_RESTRICT const>( impl( type, size ) );       \
 BOOST_ASSERT_MSG                                                               \

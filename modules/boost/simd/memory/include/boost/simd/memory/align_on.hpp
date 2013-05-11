@@ -11,11 +11,6 @@
 #ifndef BOOST_SIMD_MEMORY_ALIGN_ON_HPP_INCLUDED
 #define BOOST_SIMD_MEMORY_ALIGN_ON_HPP_INCLUDED
 
-/*!
-  @file
-  @brief Defines and implement the align_on function
-**/
-
 #include <boost/simd/meta/align_ptr.hpp>
 #include <boost/simd/memory/align_ptr.hpp>
 #include <boost/simd/memory/parameters.hpp>
