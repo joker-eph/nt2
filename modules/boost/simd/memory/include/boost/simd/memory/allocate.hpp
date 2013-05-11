@@ -15,8 +15,8 @@
   @brief Defines and implement the allocate function
 **/
 
-#include <boost/simd/memory/config.hpp>
 #include <boost/simd/memory/align_on.hpp>
+#include <boost/simd/preprocessor/malloc.hpp>
 #include <boost/simd/preprocessor/parameters.hpp>
 #include <boost/simd/memory/aligned_malloc.hpp>
 #include <boost/simd/memory/align_ptr.hpp>

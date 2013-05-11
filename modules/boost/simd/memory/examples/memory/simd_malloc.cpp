@@ -1,4 +1,4 @@
-#include <boost/simd/memory/config.hpp>
+#include <boost/simd/preprocessor/malloc.hpp>
 #include <cstddef>
 #include <cstdlib>
 
