@@ -13,7 +13,7 @@
 
 #include <boost/simd/meta/align_ptr.hpp>
 #include <boost/simd/memory/align_ptr.hpp>
-#include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/parameters.hpp>
 #include <boost/simd/memory/is_power_of_2.hpp>
 
 #include <boost/dispatch/attributes.hpp>

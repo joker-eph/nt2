@@ -9,7 +9,7 @@
 #ifndef BOOST_SIMD_PREPROCESSOR_ALIGNED_TYPE_HPP_INCLUDED
 #define BOOST_SIMD_PREPROCESSOR_ALIGNED_TYPE_HPP_INCLUDED
 
-#include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/parameters.hpp>
 #include <boost/simd/preprocessor/align_on.hpp>
 
 /*!

@@ -20,7 +20,7 @@
 #include <boost/simd/memory/config.hpp>
 #include <boost/simd/memory/allocate.hpp>
 #include <boost/simd/memory/deallocate.hpp>
-#include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/parameters.hpp>
 
 /*!
   @brief Aligned new operator for single object

@@ -17,7 +17,7 @@
 
 #include <cstddef>
 #include <boost/simd/preprocessor/new.hpp>
-#include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/parameters.hpp>
 
 namespace boost { namespace simd
 {

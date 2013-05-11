@@ -21,7 +21,7 @@
   buffer fulfilling both stack alignment and SIMD alignment is constraints.
 **/
 #include <boost/simd/sdk/config/arch.hpp>
-#include <boost/simd/memory/parameters.hpp>
+#include <boost/simd/preprocessor/parameters.hpp>
 #include <boost/simd/preprocessor/align_on.hpp>
 #include <boost/dispatch/attributes.hpp>
 
