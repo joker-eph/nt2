@@ -32,6 +32,13 @@ namespace boost { namespace simd
     typedef typename meta::as_tuple<T, details::make_soa<T,X> >::type    parent;
     typedef T value_type;
 
+    typedef X                                       extension_type;
+
+    template<class U> struct rebind
+    {
+      typedef native<U, extension_type> type;
+    };
+
     native() {}
 
     #define M0(z, n, t)                                                        \

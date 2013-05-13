@@ -25,6 +25,7 @@ SET( SOURCES
     make_integer.cpp
     make_floating.cpp
     mpl.cpp
+    rebind.cpp
     scalar_of.cpp
     sign_of.cpp
     strip.cpp

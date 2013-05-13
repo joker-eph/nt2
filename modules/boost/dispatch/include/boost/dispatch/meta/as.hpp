@@ -57,6 +57,7 @@ namespace boost { namespace dispatch { namespace meta
   template<class T>
   struct as_
   {
+    template<typename U> struct rebind { typedef as_<U> type; };
     typedef T type;
   };
 
