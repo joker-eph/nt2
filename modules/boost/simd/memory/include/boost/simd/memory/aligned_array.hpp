@@ -14,14 +14,15 @@
 #include <boost/simd/sdk/simd/preprocessor/repeat.hpp>
 
 #include <boost/throw_exception.hpp>
-#include <boost/assert.hpp>
 #include <boost/mpl/assert.hpp>
+#include <boost/assert.hpp>
 #include <boost/swap.hpp>
 #include <stdexcept>
 #include <iterator>
 
 namespace boost { namespace simd
 {
+  #if !defined(DOXYGEN_ONLY)
   template<class T, std::size_t N, std::size_t Align>
   struct aligned_array_data
   {
@@ -41,9 +42,19 @@ namespace boost { namespace simd
   BOOST_SIMD_PP_REPEAT_POWER_OF_2_BIG(M0,~)
   #undef M0
 
+  #endif
+
+  /*!
+    @brief Statically sized aligned array
+
+    @tparam T
+    @tparam N
+    @tparam Align
+  **/
   template<class T, std::size_t N, std::size_t Align>
   struct aligned_array
   {
+    /// INTERNAL ONLY
     aligned_array_data<T, N, Align> data_;
 
     typedef T              value_type;
@@ -77,14 +88,14 @@ namespace boost { namespace simd
     // operator[]
     reference operator[](size_type i)
     {
-        BOOST_ASSERT_MSG( i < N, "out of range" );
-        return this->data_.data[i];
+      BOOST_ASSERT_MSG( i < N, "out of range" );
+      return this->data_.data[i];
     }
 
     const_reference operator[](size_type i) const
     {
-        BOOST_ASSERT_MSG( i < N, "out of range" );
-        return this->data_.data[i];
+      BOOST_ASSERT_MSG( i < N, "out of range" );
+      return this->data_.data[i];
     }
 
     // at() with range check
@@ -101,6 +112,7 @@ namespace boost { namespace simd
     static size_type size()     { return N;     }
     static bool      empty()    { return false; }
     static size_type max_size() { return N;     }
+
     enum { static_size = N };
 
     // swap (note: linear complexity)
@@ -109,12 +121,12 @@ namespace boost { namespace simd
       for (size_type i = 0; i < N; ++i) boost::swap(this->data_.data[i],y.data_.data[i]);
     }
 
-    // direct access to data (read-only)
-    const T* data() const { return this->data_.data; }
-    T*       data()       { return this->data_.data; }
-
     // use array as C array (direct read/write access to data)
     T* c_array() { return this->data_.data; }
+
+    // direct access to data (read-only)
+    T* data()       { return this->data_.data; }
+    T* data() const { return this->data_.data; }
 
     // assignment with type conversion
     template <typename T2>
@@ -128,7 +140,7 @@ namespace boost { namespace simd
     void assign (const T& value) { fill ( value ); }    // A synonym for fill
     void fill   (const T& value) { std::fill_n(begin(),size(),value); }
 
-    // check range (may be private because it is static)
+    /// INTERNAL ONLY - check range (may be private because it is static)
     static void rangecheck (size_type i)
     {
       if (i >= size())

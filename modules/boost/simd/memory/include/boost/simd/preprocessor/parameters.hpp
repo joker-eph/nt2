@@ -10,11 +10,6 @@
 #ifndef BOOST_SIMD_MEMORY_PARAMETERS_HPP_INCLUDED
 #define BOOST_SIMD_MEMORY_PARAMETERS_HPP_INCLUDED
 
-/*!
-  @file
-  @brief Defines preprocessor symbol for memory related parameters
-**/
-
 #include <boost/simd/sdk/config/arch.hpp>
 #include <boost/simd/sdk/simd/extensions.hpp>
 
@@ -35,9 +30,11 @@
   @brief System dependent value for alloca alignment
 
   This macro is defined to be equal to the current system alignment of
-  address returned by alloca. This macro is usually equals to current
-  architecture stack alignment boundary (as given by BOOST_SIMD_ARCH_ALIGNMENT)
-  but maybe modified by some compiler/OS combination.
+  address returned by @c alloca.
+
+  This macro is usually equals to current architecture stack alignment boundary
+  (as given by BOOST_SIMD_ARCH_ALIGNMENT) but maybe modified by some
+  compiler/OS combination.
 **/
 #define BOOST_SIMD_ALLOCA_ALIGNMENT BOOST_SIMD_ALLOCA_ALIGNMENT
 #else
