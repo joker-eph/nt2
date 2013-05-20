@@ -12,7 +12,6 @@
 //<include> please don't modify between these tags
 #include <nt2/exponential/include/functions/expx2.hpp>
 #include <nt2/exponential/include/functions/expni.hpp>
-#include <nt2/exponential/include/functions/powi.hpp>
 #include <nt2/exponential/include/functions/pow.hpp>
 #include <nt2/exponential/include/functions/nthroot.hpp>
 #include <nt2/exponential/include/functions/log2.hpp>
