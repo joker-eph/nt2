@@ -141,4 +141,10 @@ NT2_TEST_CASE_TPL ( pow_real__2_1,  NT2_REAL_TYPES)
   NT2_TEST_ULP_EQUAL(pow(nt2::Two <T>(),3), T(8), 0);
   NT2_TEST_ULP_EQUAL(pow(nt2::Zero<T>(),0), nt2::One<r_t>(), 0);
   NT2_TEST_ULP_EQUAL(pow(nt2::Zero<T>(),3), nt2::Zero<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::Inf<T>(),4), nt2::Inf<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::Minf<T>(),4), nt2::Inf<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::Mone<T>(),4), nt2::One<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::Nan<T>(),4), nt2::Nan<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::One<T>(),4), nt2::One<r_t>(), 0);
+  NT2_TEST_ULP_EQUAL(pow(nt2::Zero<T>(),4), nt2::Zero<r_t>(), 0);
 } // end of test for floating_
