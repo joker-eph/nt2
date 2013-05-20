@@ -9,14 +9,12 @@
 #define NT2_UNIT_MODULE "nt2::all function"
 
 #include <nt2/table.hpp>
-// #include <nt2/include/functions/toint.hpp>
 #include <nt2/include/functions/of_size.hpp>
 #include <nt2/include/functions/all.hpp>
 #include <nt2/include/functions/is_true.hpp>
 #include <nt2/include/functions/is_nez.hpp>
 #include <nt2/include/constants/true.hpp>
 #include <nt2/include/functions/logical_and.hpp>
-#include <nt2/include/functions/sb2b.hpp>
 #include <nt2/sdk/unit/module.hpp>
 #include <nt2/sdk/unit/tests/basic.hpp>
 #include <nt2/sdk/unit/tests/relation.hpp>
