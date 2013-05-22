@@ -16,15 +16,12 @@
 #include <boost/simd/reduction/include/functions/hmsb.hpp>
 #include <boost/simd/sdk/simd/native.hpp>
 #include <boost/simd/include/functions/bits.hpp>
-#include <boost/simd/include/functions/shift_right.hpp>
 #include <boost/simd/include/functions/shri.hpp>
-#include <boost/simd/include/functions/shift_right.hpp>
 
 #include <boost/dispatch/functor/meta/call.hpp>
 #include <nt2/sdk/unit/tests/relation.hpp>
 #include <nt2/sdk/unit/module.hpp>
 #include <boost/simd/constant/constant.hpp>
-#include <nt2/table.hpp>
 
 NT2_TEST_CASE_TPL ( hmsb_real__1_0,  BOOST_SIMD_SIMD_REAL_TYPES)
 {
@@ -39,22 +36,13 @@ NT2_TEST_CASE_TPL ( hmsb_real__1_0,  BOOST_SIMD_SIMD_REAL_TYPES)
   // specific values tests
   NT2_TEST_EQUAL(hmsb(boost::simd::Allbits<vT>()), r_t((1ull << boost::simd::meta::cardinal_of<vT>::value) - 1));
   NT2_TEST_EQUAL(hmsb(boost::simd::Inf<vT>()), boost::simd::Zero<r_t>());
-  NT2_DISPLAY(hmsb(boost::simd::Minf<vT>()));
-  NT2_DISPLAY(r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(r_t(boost::simd::shift_right(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(r_t(boost::simd::shrai(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
   NT2_TEST_EQUAL(hmsb(boost::simd::Minf<vT>()), r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(hmsb(boost::simd::Mone<vT>()));
-  NT2_DISPLAY(r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(r_t(boost::simd::shift_right(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
   NT2_TEST_EQUAL(hmsb(boost::simd::Mone<vT>()), r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(hmsb(boost::simd::Nan<vT>()));
-  NT2_DISPLAY(r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
-  NT2_DISPLAY(r_t(boost::simd::shift_right(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
   NT2_TEST_EQUAL(hmsb(boost::simd::Nan<vT>()), r_t(boost::simd::shri(boost::simd::Mone<boost::simd::int32_t>(),32-boost::simd::meta::cardinal_of<vT>::value)));
   NT2_TEST_EQUAL(hmsb(boost::simd::One<vT>()), boost::simd::Zero<r_t>());
   NT2_TEST_EQUAL(hmsb(boost::simd::Signmask<vT>()), r_t((1ull << boost::simd::meta::cardinal_of<vT>::value) - 1));
- } // end of test for real_
+  NT2_TEST_EQUAL(hmsb(boost::simd::Zero<vT>()), boost::simd::Zero<r_t>());
+} // end of test for real_
 
 NT2_TEST_CASE_TPL ( hmsb_signed_int__1_0,  BOOST_SIMD_SIMD_INTEGRAL_SIGNED_TYPES)
 {
