@@ -9,7 +9,7 @@
 #ifndef BOOST_SIMD_OPERATOR_FUNCTIONS_SIMD_SSE_AVX_SHIFT_RIGHT_HPP_INCLUDED
 #define BOOST_SIMD_OPERATOR_FUNCTIONS_SIMD_SSE_AVX_SHIFT_RIGHT_HPP_INCLUDED
 #ifdef BOOST_SIMD_HAS_AVX_SUPPORT
-#include <boost/simd/bitwise/functions/shift_right.hpp>
+#include <boost/simd/operator/functions/shift_right.hpp>
 #include <boost/dispatch/meta/as_integer.hpp>
 
 namespace boost { namespace simd { namespace ext
