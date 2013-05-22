@@ -18,7 +18,7 @@
 #include <boost/simd/include/functions/bits.hpp>
 #include <boost/simd/include/functions/shift_right.hpp>
 #include <boost/simd/include/functions/shri.hpp>
-#include <boost/simd/include/functions/shrai.hpp>
+#include <boost/simd/include/functions/shift_right.hpp>
 
 #include <boost/dispatch/functor/meta/call.hpp>
 #include <nt2/sdk/unit/tests/relation.hpp>
