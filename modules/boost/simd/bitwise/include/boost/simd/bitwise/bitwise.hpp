@@ -13,7 +13,6 @@
 #include <boost/simd/bitwise/include/functions/genmask.hpp>
 #include <boost/simd/bitwise/include/functions/twopower.hpp>
 #include <boost/simd/bitwise/include/functions/shri.hpp>
-#include <boost/simd/bitwise/include/functions/shrai.hpp>
 #include <boost/simd/bitwise/include/functions/shli.hpp>
 #include <boost/simd/bitwise/include/functions/rshr.hpp>
 #include <boost/simd/bitwise/include/functions/rshl.hpp>

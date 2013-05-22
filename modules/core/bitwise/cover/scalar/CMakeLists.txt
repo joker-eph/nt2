@@ -11,7 +11,6 @@
 SET( SOURCES
   twopower.cpp
   shri.cpp
-  shrai.cpp
   shli.cpp
   rshr.cpp
   rshl.cpp

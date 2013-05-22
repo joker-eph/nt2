@@ -25,7 +25,7 @@
 #include <boost/simd/include/functions/load.hpp>
 
 
-NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_SIMD_INTEGRAL_TYPES)
+NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_SIMD_INTEGRAL_UNSIGNED_TYPES)
 {
   using boost::simd::shift_right;
   using boost::simd::tag::shift_right_;
@@ -43,6 +43,30 @@ NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_SIMD_INTEGRAL_TYPES)
   typedef typename boost::simd::meta::scalar_of<r_t>::type ssr_t;
 
   // specific values tests
+  NT2_TEST_EQUAL(shift_right(boost::simd::One<vT>(),boost::simd::One<ivT>())[0], boost::simd::Zero<sr_t>());
+  NT2_TEST_EQUAL(shift_right(boost::simd::One<vT>(),boost::simd::Zero<ivT>())[0], boost::simd::One<sr_t>());
+  NT2_TEST_EQUAL(shift_right(boost::simd::Zero<vT>(),boost::simd::One<ivT>())[0], boost::simd::Zero<sr_t>());
+} // end of test for integer_
+
+NT2_TEST_CASE_TPL ( shift_right_integer__2_00,  BOOST_SIMD_SIMD_INTEGRAL_SIGNED_TYPES)
+{
+  using boost::simd::shift_right;
+  using boost::simd::tag::shift_right_;
+  using boost::simd::load;
+  using boost::simd::native;
+  using boost::simd::meta::cardinal_of;
+  typedef BOOST_SIMD_DEFAULT_EXTENSION  ext_t;
+  typedef typename boost::dispatch::meta::upgrade<T>::type   u_t;
+  typedef native<T,ext_t>                        n_t;
+  typedef n_t                                     vT;
+  typedef typename boost::dispatch::meta::as_integer<T>::type iT;
+  typedef native<iT,ext_t>                       ivT;
+  typedef typename boost::dispatch::meta::call<shift_right_(vT,ivT)>::type r_t;
+  typedef typename boost::simd::meta::scalar_of<r_t>::type sr_t;
+  typedef typename boost::simd::meta::scalar_of<r_t>::type ssr_t;
+
+  // specific values tests
+  NT2_TEST_EQUAL(shift_right(boost::simd::Mone<vT>(),boost::simd::One<ivT>())[0], boost::simd::Mone<sr_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::One<vT>(),boost::simd::One<ivT>())[0], boost::simd::Zero<sr_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::One<vT>(),boost::simd::Zero<ivT>())[0], boost::simd::One<sr_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::Zero<vT>(),boost::simd::One<ivT>())[0], boost::simd::Zero<sr_t>());

@@ -20,9 +20,7 @@
 #include <nt2/sdk/unit/tests.hpp>
 #include <nt2/sdk/unit/module.hpp>
 #include <boost/simd/constant/constant.hpp>
-
-
-NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_INTEGRAL_TYPES)
+NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_SIMD_INTEGRAL_UNSIGNED_TYPES)
 {
 
   using boost::simd::shift_right;
@@ -39,6 +37,29 @@ NT2_TEST_CASE_TPL ( shift_right_integer__2_0,  BOOST_SIMD_INTEGRAL_TYPES)
   std::cout << std::endl;
 
   // specific values tests
+  NT2_TEST_EQUAL(shift_right(boost::simd::One<T>(),boost::simd::One<iT>()), boost::simd::Zero<r_t>());
+  NT2_TEST_EQUAL(shift_right(boost::simd::One<T>(),boost::simd::Zero<iT>()), boost::simd::One<r_t>());
+  NT2_TEST_EQUAL(shift_right(boost::simd::Zero<T>(),boost::simd::One<iT>()), boost::simd::Zero<r_t>());
+} // end of t
+
+NT2_TEST_CASE_TPL ( shift_right_integer__2_00,  BOOST_SIMD_SIMD_INTEGRAL_SIGNED_TYPES)
+{
+
+  using boost::simd::shift_right;
+  using boost::simd::tag::shift_right_;
+  typedef typename boost::dispatch::meta::as_integer<T>::type iT;
+  typedef typename boost::dispatch::meta::call<shift_right_(T,iT)>::type r_t;
+  typedef typename boost::simd::meta::scalar_of<r_t>::type sr_t;
+  typedef typename boost::simd::meta::scalar_of<r_t>::type ssr_t;
+  typedef r_t wished_r_t;
+
+
+  // return type conformity test
+  NT2_TEST( (boost::is_same < r_t, wished_r_t >::value) );
+  std::cout << std::endl;
+
+  // specific values tests
+  NT2_TEST_EQUAL(shift_right(boost::simd::Mone<T>(),boost::simd::One<iT>()), boost::simd::Mone<sr_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::One<T>(),boost::simd::One<iT>()), boost::simd::Zero<r_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::One<T>(),boost::simd::Zero<iT>()), boost::simd::One<r_t>());
   NT2_TEST_EQUAL(shift_right(boost::simd::Zero<T>(),boost::simd::One<iT>()), boost::simd::Zero<r_t>());
